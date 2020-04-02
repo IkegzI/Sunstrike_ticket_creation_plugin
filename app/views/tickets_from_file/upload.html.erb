@@ -1,0 +1,9 @@
+<h2>Загрузка файла</h2>
+<%= form_tag do %>
+  <div id="new-attachments">
+    <%= render :partial => 'attachments/form' %>
+  </div>
+  <div>
+    <%= submit_tag "Отправить", {method: 'post', } %>
+  </div>
+<% end %>
