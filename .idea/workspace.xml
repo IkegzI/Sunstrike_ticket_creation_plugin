@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54dca8a0-37c5-4cdf-9f2b-90a1b61183c4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/tickets_from_file_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/tickets_from_file_helper.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +29,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -123,6 +130,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -136,7 +144,8 @@
       <workItem from="1585797139034" duration="347000" />
       <workItem from="1585797496910" duration="1898000" />
       <workItem from="1585904499022" duration="1636000" />
-      <workItem from="1586160566176" duration="2637000" />
+      <workItem from="1586160566176" duration="29782000" />
+      <workItem from="1586847788041" duration="6594000" />
     </task>
     <servers />
   </component>
