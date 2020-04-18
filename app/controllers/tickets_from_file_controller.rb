@@ -23,7 +23,6 @@ class TicketsFromFileController < ApplicationController
     razdelitel = '  ' if header.rindex('   ')
     razdelitel = ',' if header.rindex(',,')
     razdelitel = ';' if header.rindex(';;')
-    binding.pry
     loop do
       text = if header.index(razdelitel) > 0
                header.slice!(0..(header.index(razdelitel)))
@@ -96,9 +95,16 @@ class TicketsFromFileController < ApplicationController
             i += 1
           end
         end
-        tasks << task
+        tasks << task if task.present?
       end
-      binding.pry
     end
+    binding.pry
+
+    @tasks = tasks
+    render action: 'render_tasks'
+  end
+
+  def render_tasks
+    @tasks
   end
 end

@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54dca8a0-37c5-4cdf-9f2b-90a1b61183c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/tickets_from_file/render_tasks.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/helpers/tickets_from_file_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/tickets_from_file_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Erb File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -145,7 +153,10 @@
       <workItem from="1585797496910" duration="1898000" />
       <workItem from="1585904499022" duration="1636000" />
       <workItem from="1586160566176" duration="29782000" />
-      <workItem from="1586847788041" duration="6594000" />
+      <workItem from="1586847788041" duration="8342000" />
+      <workItem from="1586914323663" duration="1211000" />
+      <workItem from="1586951195496" duration="2191000" />
+      <workItem from="1587002674332" duration="12648000" />
     </task>
     <servers />
   </component>

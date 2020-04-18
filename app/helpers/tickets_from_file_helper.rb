@@ -31,4 +31,8 @@ module TicketsFromFileHelper
     header_keys
   end
 
+  def self.tasks
+    @tasks
+  end
+
 end

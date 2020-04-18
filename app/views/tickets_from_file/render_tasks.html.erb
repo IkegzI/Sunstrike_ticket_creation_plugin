@@ -1,0 +1,15 @@
+<% @tasks.each do |item| %>
+  <div>
+    <%= item[:tracker] %>
+    <%= item[:theme] %>
+    <%= item[:description] %>
+    <%= item[:assignet_to] %>
+    <%= item[:external_rate] %>
+    <%= item[:fix_estimate] %>
+    <%= item[:project_lead] %>
+    <%= item[:art_manager] %>
+    <%= item[:parent_task] %>
+    <%= item[:dead_line] %>
+    <%= item[:time_cost_estimation] %>
+  </div>
+<% end %>
