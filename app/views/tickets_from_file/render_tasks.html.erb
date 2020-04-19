@@ -1,15 +1,26 @@
-<% @tasks.each do |item| %>
-  <div>
-    <%= item[:tracker] %>
-    <%= item[:theme] %>
-    <%= item[:description] %>
-    <%= item[:assignet_to] %>
-    <%= item[:external_rate] %>
-    <%= item[:fix_estimate] %>
-    <%= item[:project_lead] %>
-    <%= item[:art_manager] %>
-    <%= item[:parent_task] %>
-    <%= item[:dead_line] %>
-    <%= item[:time_cost_estimation] %>
-  </div>
-<% end %>
+<table>
+  <tr>
+    <% @header.each do |item| %>
+    <th><%= label_tag t item %></th>
+      <% end %>
+  </tr>
+  <body>
+  <% @tasks.each do |item| %>
+    <tr>
+      <td><%= select_tag "issues[#{item[:issue]}][tracker]", options_for_select(select_tracker, select_tracer_from_document(item[:tracker])) %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][theme]", item[:theme] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][description]", item[:description] %></td>
+      <% binding.pry %>
+      <td><%= select_tag "issues[#{item[:issue]}][assigned_to]", options_for_select(select_users, select_user_from_document(item[:assignet_to])) %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][external_rate]", item[:external_rate] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][fix_estimate]", item[:fix_estimate] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][project_lead]", item[:project_lead] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][art_manager]", item[:art_manager] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][parent_task]", item[:parent_task] %></td>
+      <td><%= date_field_tag "issues[#{item[:issue]}][dead_line]", item[:dead_line] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][time_cost_estimation]", item[:time_cost_estimation] %></td>
+      <td><%= text_field_tag "issues[#{item[:issue]}][freelancer?]", item[:time_cost_estimation] %></td>
+    </tr>
+  <% end %>
+  </body>
+</table>

@@ -30,11 +30,11 @@ class TicketsFromFileController < ApplicationController
                ' '
              end
       if keys.keys.size > header_keys.size
-      header_keys << (keys.keys.map do |item|
-        keys[item] if text.index(item).present?
-      end.compact.first)
-      break if header_keys.last == :freelance?
-    end
+        header_keys << (keys.keys.map do |item|
+          keys[item] if text.index(item).present?
+        end.compact.first)
+        break if header_keys.last == :freelance?
+      end
     end
 
     [header_keys, razdelitel]
@@ -51,7 +51,7 @@ class TicketsFromFileController < ApplicationController
         tracker: '',
         theme: '',
         description: '',
-        assignet_to: '',
+        assigned_to: '',
         external_rate: '',
         fix_estimate: '',
         project_lead: '',
@@ -60,25 +60,25 @@ class TicketsFromFileController < ApplicationController
         dead_line: '',
         time_cost_estimation: ''
     }
-    header = []
+    @header = []
     tasks = []
     razdelitel = ''
     files = find_attachments
     files.each do |file|
       csv_file = File.readlines(file.diskfile)
-      csv_file.each do |line|
+      csv_file.each_with_index do |line, index|
         i = 0
         line = Iconv.iconv('utf-8', 'windows-1251', line).pop
         task = {}
-        unless header.present?
+        unless @header.present?
           arr = header_assign_key(line)
-          header = arr.first
+          @header = arr.first
           razdelitel = arr.last
         else
           loop do
             if line.first == "\""
               text = if line.index("\"#{razdelitel}") > 0
-                       line.slice!(0..(line.index("\"#{razdelitel}")))
+                       line.slice!(0..(line.index("\"#{razdelitel}")+1))
                      else
                        ''
                      end
@@ -89,17 +89,18 @@ class TicketsFromFileController < ApplicationController
                        ''
                      end
             end
-
-            task[header[i]] = text
-            break if header[i] ==  header.last
+            text.slice!(text.size - 1) if text.last == razdelitel
+            task[@header[i]] = text if text.present?
+            if @header[i] == @header.last
+              break
+            end
             i += 1
           end
+          task[:issue] = index
+          tasks << task if task.present?
         end
-        tasks << task if task.present?
       end
     end
-    binding.pry
-
     @tasks = tasks
     render action: 'render_tasks'
   end

@@ -1,0 +1,13 @@
+  ru:
+    tracker: 'Трекер'
+    theme: 'Тема'
+    description: 'Описание'
+    assignet_to: 'Назначена'
+    external_rate: 'Внешний рейт'
+    fix_estimate: 'Фиксированный эстимейт?'
+    project_lead: 'Проджект лид'
+    art_manager: 'Арт-менеджер'
+    parent_task: 'Родительская задача'
+    dead_line: 'Срок завершения'
+    time_cost_estimation: 'Оценка временных затрат'
+    freelance?: 'Делает фрилансер?'
