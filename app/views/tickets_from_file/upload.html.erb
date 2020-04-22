@@ -1,5 +1,6 @@
 <h2>Загрузка файла</h2>
 <%= form_tag do %>
+  <td><%= select_tag "project_id", options_for_select(select_project) %></td>
   <div id="new-attachments">
     <%= render :partial => 'attachments/form' %>
   </div>

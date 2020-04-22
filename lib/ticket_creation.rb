@@ -1,1 +1,1 @@
-
+require_relative '../app/helpers/tickets_from_file_helper'

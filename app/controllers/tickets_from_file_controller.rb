@@ -101,6 +101,7 @@ class TicketsFromFileController < ApplicationController
         end
       end
     end
+    @project = TicketsFromFileHelper.select_project_lead(params[:project_id].to_i)
     @tasks = tasks
     render action: 'render_tasks'
   end

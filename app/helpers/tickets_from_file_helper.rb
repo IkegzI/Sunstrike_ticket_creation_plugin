@@ -73,5 +73,13 @@ module TicketsFromFileHelper
   end
 
 
+  def select_project
+    Project.where(status: 1).map { |item| [item.name, item.id] }
+  end
+
+  def self.select_project_lead(project_id)
+    binding.pry
+  end
+
 
 end
