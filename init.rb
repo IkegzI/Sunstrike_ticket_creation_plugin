@@ -6,8 +6,9 @@ Redmine::Plugin.register :sunstrike_ticket_creation_plugin do
   url 'http://example.com/path/to/plugin'
   author_url 'http://example.com/about'
 
-ON_OFF_CONST = [['Включен', 0], ['Выключен', 1]]
-settings default: {}, partial: 'ticket/settings/setting'
+  ON_OFF_CONST = [['Включен', 0], ['Выключен', 1]]
+  YES_NO_CONST = [['Да', 0], ['Нет', 1]]
+  settings default: {}, partial: 'ticket/settings/setting'
   # require_dependency 'ssr_freelance'
 
 end

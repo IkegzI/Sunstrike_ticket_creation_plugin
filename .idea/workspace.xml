@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Erb File" />
+        <option value="ERB File" />
       </list>
     </option>
   </component>
@@ -146,6 +147,7 @@
       <workItem from="1587002674332" duration="12648000" />
       <workItem from="1587385332770" duration="1427000" />
       <workItem from="1587556713012" duration="2987000" />
+      <workItem from="1587631137961" duration="10958000" />
     </task>
     <servers />
   </component>
@@ -178,9 +180,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="873" y="221" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585798095089" />
-    <state x="646" y="236" width="627" height="568" key="find.popup" timestamp="1587291902860">
+    <state x="646" y="236" width="627" height="568" key="find.popup" timestamp="1587636181880">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1587291902860" />
+    <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587636181880" />
   </component>
 </project>

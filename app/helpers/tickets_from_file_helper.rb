@@ -77,8 +77,33 @@ module TicketsFromFileHelper
     Project.where(status: 1).map { |item| [item.name, item.id] }
   end
 
-  def self.select_project_lead(project_id)
-    binding.pry
+  def role_art_manager
+    @art_manager = Role.find_by(name: 'Арт-мененджер')
+    return @art_manager = @art_manager.members.where(project_id: params[:project_id].to_i) if @art_manager.present?
+  end
+
+  def select_art_manager
+    role_art_manager unless @art_manager.present?
+    if @art_manager.present?
+      @art_manager_for_selector = @art_manager.map { |item| ["#{item.lastname} #{item.firstname}", item.id] }
+    else
+      @art_manager_for_selector = ["нет данных"]
+    end
+  end
+
+  def role_project_lead
+    @project_lead = Role.find_by(name: 'Арт-мененджер')
+    return @project_lead = @project_lead.members.where(project_id: params[:project_id].to_i) if @project_lead.present?
+  end
+
+  def select_project_lead
+    role_project_lead unless @project_lead.present?
+    if @project_lead.present?
+      @project_lead_for_selector = @project_lead.map { |item| ["#{item.lastname} #{item.firstname}", item.id] }
+    else
+      @project_lead_for_selector = ["нет данных"]
+    end
+    @project_lead_for_selector
   end
 
 
