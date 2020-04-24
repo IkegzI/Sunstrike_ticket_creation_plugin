@@ -58,7 +58,8 @@ class TicketsFromFileController < ApplicationController
         art_manager: '',
         parent_task: '',
         dead_line: '',
-        time_cost_estimation: ''
+        time_cost_estimation: '',
+        freelancer?: ''
     }
     @header = []
     tasks = []
@@ -77,26 +78,35 @@ class TicketsFromFileController < ApplicationController
         else
           loop do
             if line.first == "\""
-              text = if line.index("\"#{razdelitel}") > 0
-                       line.slice!(0..(line.index("\"#{razdelitel}")+1))
+              text = if line.index("\"#{razdelitel}") > 0 and line.size > 2
+                       line.slice!(0..(line.index("\"#{razdelitel}") + 1))
                      else
                        ''
                      end
             else
-              text = if line.index(razdelitel) > 0
+              text = if line.index(razdelitel) and line.size > 2
                        line.slice!(0..(line.index(razdelitel)))
                      else
                        ''
                      end
             end
             text.slice!(text.size - 1) if text.last == razdelitel
-            task[@header[i]] = text if text.present?
+            task[@header[i]] = text unless text.nil?
+
+
             if @header[i] == @header.last
+              task[:freelance?] = task[:freelance?].downcase.capitalize
               break
             end
             i += 1
           end
           task[:issue] = index
+          if task[:dead_line].present?
+            if task[:dead_line].split('.').size > 1
+              task[:dead_line] = task[:dead_line].split('.').reverse.join('-')
+            end
+          end
+
           tasks << task if task.present?
         end
       end
@@ -108,12 +118,31 @@ class TicketsFromFileController < ApplicationController
 
   def create_task
     binding.pry
+    issues = params[:issues]
+    project = params[:project].to_i
+    user = params[:user].to_i
+    issues_new = []
+    issues.keys.each do |k|
+      binding.pry
 
+      issues_new << Issue.new(
+          tracker_id: issues[k][:tracker_id],
+          subject: issues[k][:subject],
+          description: issues[k][:description],
+          assigned_to_id: issues[k][:assigned_to_id],
+          parent_id: issues[k][:parent_id],
+          due_date: issues[k][:due_date],
+          estimated_hours: issues[k][:estimated_hours],
+          project_id: project,
+          author_id: user
+      )
+      binding.pry
+
+
+    end
 
 
   end
-
-
 
 
   def render_tasks
