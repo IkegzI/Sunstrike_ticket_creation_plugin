@@ -1,0 +1,30 @@
+<% SsrFreelancePayHelper.check_field_on_pay %>
+<h3>Управление работой</h3>
+<div id="sunstrike_settnigs_div">
+  <div class="plitka">
+    <div id="sunstrike_settnigs_select">
+
+      <%= select_tag('settings[power_plugin_status]',
+                     options_for_select(ON_OFF_CONST,
+                                        Setting.plugin_freelance_helper['power_plugin_status'].to_i)) %>
+    </div>
+  </div>
+</div>
+
+<h3>Настройка</h3>
+<div class="plitka">
+  <h4>Поле Project-lead</h4>
+  <div id="sunstrike_settnigs_select">
+
+    <%= select_tag('settings[sunstrike_project_lead_id]',
+                   options_for_select(select_custom_fields,
+                                      Setting.plugin_sunstrike_ticket_creation['sunstrike_project_lead_id'].to_i)) %>
+  </div>
+</div>
+<div class="plitka">
+  <h4>Поле Арт-Менеджер</h4>
+  <div id="id_rol_on_selected_">
+    <%= select_tag("settings[sunstrike_art_manager_id]",
+                   options_for_select(select_custom_fields, Setting.plugin_sunstrike_ticket_creation['sunstrike_art_manager_id'].to_i)) %>
+  </div>
+</div>

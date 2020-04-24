@@ -106,5 +106,9 @@ module TicketsFromFileHelper
     @project_lead_for_selector
   end
 
+  def select_custom_fields
+    IssueCustomField.all{|field| [field.name, field.id]}
+  end
+
 
 end

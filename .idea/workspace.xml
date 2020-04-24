@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/tickets_from_file/render_tasks.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tickets_from_file/render_tasks.html.erb" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,25 +33,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/helpers" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\ticket_creation" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app\helpers" />
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\patches" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Rails.Development: Sunstrike_ticket_creation_plugin">
     <configuration name="Development: Sunstrike_ticket_creation_plugin" type="RailsRunConfigurationType" factoryName="Rails">
@@ -111,7 +103,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="null" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
     <configuration name="test: Sunstrike_ticket_creation_plugin" type="RakeRunConfigurationType" factoryName="Rake">
@@ -133,7 +125,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="null" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
       <method v="2" />
     </configuration>
   </component>

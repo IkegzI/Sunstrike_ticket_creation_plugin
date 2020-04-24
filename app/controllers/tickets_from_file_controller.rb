@@ -96,6 +96,7 @@ class TicketsFromFileController < ApplicationController
 
             if @header[i] == @header.last
               task[:freelance?] = task[:freelance?].downcase.capitalize
+              task[:freelance?] = 'Нет' if task[:freelance?] != 'Да'
               break
             end
             i += 1
@@ -123,9 +124,8 @@ class TicketsFromFileController < ApplicationController
     user = params[:user].to_i
     issues_new = []
     issues.keys.each do |k|
-      binding.pry
 
-      issues_new << Issue.new(
+      issue = Issue.new(
           tracker_id: issues[k][:tracker_id],
           subject: issues[k][:subject],
           description: issues[k][:description],
@@ -134,12 +134,17 @@ class TicketsFromFileController < ApplicationController
           due_date: issues[k][:due_date],
           estimated_hours: issues[k][:estimated_hours],
           project_id: project,
-          author_id: user
+          author: User.current
       )
+
+      if issue.validate
+        issues_new << issue
+      end
       binding.pry
 
 
     end
+    binding.pry
 
 
   end
