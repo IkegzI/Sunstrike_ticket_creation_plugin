@@ -1,7 +1,6 @@
 require_dependency 'ticket_creation'
-require_relative './app/helpers/tickets_from_file_helper'
 
-Redmine::Plugin.register :sunstrike_ticket_creation do
+Redmine::Plugin.register :Sunstrike_ticket_creation_plugin do
   name 'Sunstrike Ticket Creation Plugin plugin'
   author 'Author name'
   description 'This is a plugin for Redmine'

@@ -137,11 +137,11 @@ class TicketsFromFileController < ApplicationController
           project_id: project,
           author: User.current
       )
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_project_lead_id'].to_i }.first.value = issues[k][:custom][:project_lead] if Setting.plugin_sunstrike_ticket_creation['sunstrike_project_lead_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_art_manager_id'].to_i }.first.value = issues[k][:custom][:art_manager] if Setting.plugin_sunstrike_ticket_creation['sunstrike_art_manager_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_freelance_id'].to_i }.first.value = issues[k][:custom][:freelancer?] if Setting.plugin_sunstrike_ticket_creation['sunstrike_freelance_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_fix_estimate_id'].to_i }.first.value = issues[k][:custom][:fix_estimate] if Setting.plugin_sunstrike_ticket_creation['sunstrike_fix_estimate_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_out_rate_id'].to_i }.first.value = issues[k][:custom][:external_rate] if Setting.plugin_sunstrike_ticket_creation['sunstrike_out_rate_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = issues[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i }.first.value = issues[k][:custom][:art_manager] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i }.first.value = issues[k][:custom][:freelancer?] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'].to_i }.first.value = issues[k][:custom][:fix_estimate] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_out_rate_id'].to_i }.first.value = issues[k][:custom][:external_rate] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_out_rate_id'] != 'non'
 
       if issue.validate
         issues_new[k] = issue
