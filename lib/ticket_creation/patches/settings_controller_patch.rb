@@ -1,4 +1,5 @@
-require_relative '../../ticket_creation.rb'
+require_dependency 'settings_controller'
+require_relative '../../ticket_creation'
 
 module TicketCreation
   module Patches

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54dca8a0-37c5-4cdf-9f2b-90a1b61183c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tickets_from_file/render_tasks.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tickets_from_file/render_tasks.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="54dca8a0-37c5-4cdf-9f2b-90a1b61183c4" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +20,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Zy2i9SXfNTNGOJbk5DDojzIF2g" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -33,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/helpers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../redmine_403/plugins/timeentry_easy" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -41,10 +39,23 @@
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\ticket_creation" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app\helpers" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\patches" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Rails.Development: Sunstrike_ticket_creation_plugin">
     <configuration name="Development: Sunstrike_ticket_creation_plugin" type="RailsRunConfigurationType" factoryName="Rails">
@@ -90,7 +101,7 @@
     <configuration name="spec: Sunstrike_ticket_creation_plugin" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="Sunstrike_ticket_creation_plugin" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -103,13 +114,13 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="null" />
       <method v="2" />
     </configuration>
     <configuration name="test: Sunstrike_ticket_creation_plugin" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="Sunstrike_ticket_creation_plugin" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
@@ -125,7 +136,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TESTOPTS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_VERBOSE" VALUE="null" />
       <method v="2" />
     </configuration>
   </component>
@@ -152,7 +163,8 @@
       <workItem from="1587556713012" duration="2987000" />
       <workItem from="1587631137961" duration="10958000" />
       <workItem from="1587650874171" duration="4581000" />
-      <workItem from="1587718564523" duration="5460000" />
+      <workItem from="1587718564523" duration="6234000" />
+      <workItem from="1587742512207" duration="7460000" />
     </task>
     <servers />
   </component>

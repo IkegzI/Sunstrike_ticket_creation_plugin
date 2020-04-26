@@ -118,11 +118,12 @@ class TicketsFromFileController < ApplicationController
   end
 
   def create_task
-    binding.pry
     issues = params[:issues]
     project = params[:project].to_i
     user = params[:user].to_i
-    issues_new = []
+    issues_new = {}
+    errors_validate = {}
+    parent_hash = {}
     issues.keys.each do |k|
 
       issue = Issue.new(
@@ -136,21 +137,39 @@ class TicketsFromFileController < ApplicationController
           project_id: project,
           author: User.current
       )
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_project_lead_id'].to_i }.first.value = issues[k][:custom][:project_lead] if Setting.plugin_sunstrike_ticket_creation['sunstrike_project_lead_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_art_manager_id'].to_i }.first.value = issues[k][:custom][:art_manager] if Setting.plugin_sunstrike_ticket_creation['sunstrike_art_manager_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_freelance_id'].to_i }.first.value = issues[k][:custom][:freelancer?] if Setting.plugin_sunstrike_ticket_creation['sunstrike_freelance_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_fix_estimate_id'].to_i }.first.value = issues[k][:custom][:fix_estimate] if Setting.plugin_sunstrike_ticket_creation['sunstrike_fix_estimate_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_sunstrike_ticket_creation['sunstrike_out_rate_id'].to_i }.first.value = issues[k][:custom][:external_rate] if Setting.plugin_sunstrike_ticket_creation['sunstrike_out_rate_id'] != 'non'
 
       if issue.validate
-        issues_new << issue
+        issues_new[k] = issue
+      else
+        errors_validate[k] = issue.errors.messages
       end
-      binding.pry
-
 
     end
-    binding.pry
-
-
+    unless errors_validate.keys.present?
+      issues_new.each_key { |key| issues_new[key].save }
+      binding.pry
+      issues_new.each_key do |key|
+        if issues_new[key].parent_id > 0
+          issues_new[key].update(parent_id: issues_new[issues_new[key].parent_id.to_s].id)
+        else
+          issues_new[key].update(parent_id: nil)
+        end
+      end
   end
 
+  binding.pry
+  redirect_to issues_path
 
-  def render_tasks
-    @tasks
-  end
+end
+
+
+def render_tasks
+  @tasks
+end
+
 end

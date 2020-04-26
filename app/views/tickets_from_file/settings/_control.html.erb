@@ -13,7 +13,7 @@
 
 <h3>Настройка</h3>
 <div class="plitka">
-  <h4>Поле Project-lead</h4>
+  <h4>Поле: Project-lead</h4>
   <div id="sunstrike_settnigs_select">
 
     <%= select_tag('settings[sunstrike_project_lead_id]',
@@ -22,9 +22,32 @@
   </div>
 </div>
 <div class="plitka">
-  <h4>Поле Арт-Менеджер</h4>
+  <h4>Поле: Арт-Менеджер</h4>
   <div id="id_rol_on_selected_">
     <%= select_tag("settings[sunstrike_art_manager_id]",
                    options_for_select(select_custom_fields, Setting.plugin_sunstrike_ticket_creation['sunstrike_art_manager_id'].to_i)) %>
+  </div>
+</div>
+<div class="plitka">
+  <h4>Поле: статус фриланса</h4>
+  <div id="id_rol_on_selected_">
+    <%= select_tag("settings[sunstrike_freelance_id]",
+                   options_for_select(select_custom_fields, Setting.plugin_sunstrike_ticket_creation['sunstrike_freelance_id'].to_i)) %>
+  </div>
+</div>
+
+<div class="plitka">
+  <h4>Поле: фиксированный эстимей</h4>
+  <div id="id_rol_on_selected_">
+    <%= select_tag("settings[sunstrike_fix_estimate_id]",
+                   options_for_select(select_custom_fields, Setting.plugin_sunstrike_ticket_creation['sunstrike_fix_estimate_id'].to_i)) %>
+  </div>
+</div>
+
+<div class="plitka">
+  <h4>Поле: Внешний рейт</h4>
+  <div id="id_rol_on_selected_">
+    <%= select_tag("settings[sunstrike_out_rate_id]",
+                   options_for_select(select_custom_fields, Setting.plugin_sunstrike_ticket_creation['sunstrike_out_rate_id'].to_i)) %>
   </div>
 </div>

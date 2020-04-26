@@ -29,10 +29,6 @@ module TicketsFromFileHelper
     header_keys
   end
 
-  # def self.tasks
-  #   @tasks
-  # end
-  #
   def select_tracker
     Tracker.all.map { |item| [item.name, item.id] }
   end
@@ -107,7 +103,7 @@ module TicketsFromFileHelper
   end
 
   def select_custom_fields
-    IssueCustomField.all{|field| [field.name, field.id]}
+    IssueCustomField.all.map{|field| [field.name, field.id]}.insert(0, ['<--не выбрано-->', 'non'])
   end
 
 
