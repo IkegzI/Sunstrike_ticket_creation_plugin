@@ -1,23 +1,29 @@
 require 'iconv'
 class TicketsFromFileController < ApplicationController
+  
+  include TicketsFromFileHelper
+
+  @files = ''
   def upload
+    @files
   end
 
   def header_assign_key(header)
     keys = {
-        'Трекер' => :tracker,
-        'Тема' => :theme,
+        'Трекер' => :tracker_id,
+        'Тема' => :subject,
         'Описание' => :description,
-        'Назначена' => :assignet_to,
+        'Назначена' => :assigned_to_id,
         'Внешний рейт' => :external_rate,
         'Фиксированный эстимейт?' => :fix_estimate,
         'Проджект лид' => :project_lead,
         'Арт-менеджер' => :art_manager,
-        'Родительская задача' => :parent_task,
-        'Срок завершения' => :dead_line,
-        'Оценка временных затрат' => :time_cost_estimation,
+        'Родительская задача' => :parent_id,
+        'Срок завершения' => :due_date,
+        'Оценка временных затрат' => :estimated_hours,
         'Делает фрилансер?' => :freelance?
     }
+
     header_keys = []
 
     razdelitel = '  ' if header.rindex('   ')
@@ -48,24 +54,25 @@ class TicketsFromFileController < ApplicationController
     # csv.by_row[1].values_at
     # csv.size.times {|item| csv.by_row[item]}
     task = {
-        tracker: '',
-        theme: '',
+        tracker_id: '',
+        subject: '',
         description: '',
-        assigned_to: '',
+        assigned_to_id: '',
         external_rate: '',
         fix_estimate: '',
         project_lead: '',
         art_manager: '',
-        parent_task: '',
-        dead_line: '',
-        time_cost_estimation: '',
+        parent_id: '',
+        due_date: '',
+        estimated_hours: '',
         freelancer?: ''
     }
     @header = []
     tasks = []
     razdelitel = ''
-    files = find_attachments
-    files.each do |file|
+    binding.pry
+    @files = find_attachments.present? ? find_attachments : @files
+    @files.each do |file|
       csv_file = File.readlines(file.diskfile)
       csv_file.each_with_index do |line, index|
         i = 0
@@ -118,35 +125,36 @@ class TicketsFromFileController < ApplicationController
   end
 
   def create_task
-    issues = params[:issues]
-    project = params[:project].to_i
+    @tasks = params[:issues]
+    @project = params[:project].to_i
+    @header = params[:header]
     user = params[:user].to_i
     issues_new = {}
     errors_validate = {}
     parent_hash = {}
-    issues.keys.each do |k|
+    @tasks.keys.each do |k|
 
       issue = Issue.new(
-          tracker_id: issues[k][:tracker_id],
-          subject: issues[k][:subject],
-          description: issues[k][:description],
-          assigned_to_id: issues[k][:assigned_to_id],
-          parent_id: issues[k][:parent_id],
-          due_date: issues[k][:due_date],
-          estimated_hours: issues[k][:estimated_hours],
-          project_id: project,
+          tracker_id: @tasks[k][:tracker_id],
+          subject: @tasks[k][:subject],
+          description: @tasks[k][:description],
+          assigned_to_id: @tasks[k][:assigned_to_id],
+          parent_id: @tasks[k][:parent_id],
+          due_date: @tasks[k][:due_date],
+          estimated_hours: @tasks[k][:estimated_hours],
+          project_id: @project,
           author: User.current
       )
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = issues[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i }.first.value = issues[k][:custom][:art_manager] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i }.first.value = issues[k][:custom][:freelancer?] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'].to_i }.first.value = issues[k][:custom][:fix_estimate] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'] != 'non'
-      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_out_rate_id'].to_i }.first.value = issues[k][:custom][:external_rate] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_out_rate_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = @tasks[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i }.first.value = @tasks[k][:custom][:art_manager] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i }.first.value = @tasks[k][:custom][:freelancer?] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'].to_i }.first.value = @tasks[k][:custom][:fix_estimate] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'] != 'non'
+      issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_out_rate_id'].to_i }.first.value = @tasks[k][:custom][:external_rate] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_out_rate_id'] != 'non'
 
       if issue.validate
         issues_new[k] = issue
       else
-        errors_validate[k] = issue.errors.messages
+        errors_validate[k] = issue.errors
       end
 
     end
@@ -160,10 +168,17 @@ class TicketsFromFileController < ApplicationController
           issues_new[key].update(parent_id: nil)
         end
       end
-  end
+      redirect_to issues_path
+    else
+      binding.pry
+
+      # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
+      render action: 'render_tasks', :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
+    end
 
   binding.pry
-  redirect_to issues_path
+
+
 
 end
 
@@ -172,4 +187,7 @@ def render_tasks
   @tasks
 end
 
+  
+  
+  
 end

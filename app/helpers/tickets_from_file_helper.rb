@@ -74,7 +74,7 @@ module TicketsFromFileHelper
   end
 
   def role_art_manager
-    @art_manager = Role.find_by(name: 'Арт-мененджер')
+    @art_manager = Role.find_by(name: 'Арт-менеджер')
     return @art_manager = @art_manager.members.where(project_id: params[:project_id].to_i) if @art_manager.present?
   end
 
@@ -88,7 +88,7 @@ module TicketsFromFileHelper
   end
 
   def role_project_lead
-    @project_lead = Role.find_by(name: 'Арт-мененджер')
+    @project_lead = Role.find_by(name: ['Арт-менеджер', 'Ведущий художник', 'Ведущий арт-менеджер'])
     return @project_lead = @project_lead.members.where(project_id: params[:project_id].to_i) if @project_lead.present?
   end
 
@@ -105,6 +105,7 @@ module TicketsFromFileHelper
   def select_custom_fields
     IssueCustomField.all.map{|field| [field.name, field.id]}.insert(0, ['<--не выбрано-->', 'non'])
   end
+
 
 
 end

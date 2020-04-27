@@ -2,30 +2,31 @@
 <div class="wrapper">
 
   <table>
-    <tr>
+    <%= form_tag tickets_from_file_create_task_path do %>
+  <tr>
       <th><%= label_tag "Номер" %></th>
       <% @header.each do |item| %>
         <th><%= label_tag t item %></th>
-      <% end %>
+      <%= hidden_field_tag "header[#{item}]", item %>
+  <% end %>
     </tr>
-    <%= form_tag tickets_from_file_create_task_path do %>
       <body>
       <% parent_index = 0 %>
       <% parent_id = 0 %>
       <% @tasks.each_with_index do |item, index| %>
         <tr id="<%= index + 1 %>">
           <td><%= label_tag "#{index + 1}." %></td>
-          <td><%= select_tag "issues[#{item[:issue]}][tracker_id]", options_for_select(select_tracker, select_tracer_from_document(item[:tracker])) %></td>
-          <td><%= text_field_tag "issues[#{item[:issue]}][subject]", item[:theme] %></td>
+          <td><%= select_tag "issues[#{item[:issue]}][tracker_id]", options_for_select(select_tracker, select_tracer_from_document(item[:tracker_id])) %></td>
+          <td><%= text_field_tag "issues[#{item[:issue]}][subject]", item[:subject] %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][description]", item[:description] %></td>
-          <td><%= select_tag "issues[#{item[:issue]}][assigned_to_id]", options_for_select(select_users, select_user_from_document(item[:assignet_to])) %></td>
+          <td><%= select_tag "issues[#{item[:issue]}][assigned_to_id]", options_for_select(select_users, select_user_from_document(item[:assigned_to_id])) %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][custom][external_rate]", item[:external_rate] %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][custom][fix_estimate]", item[:fix_estimate] %></td>
           <td><%= select_tag "issues[#{item[:issue]}][custom][project_lead]", options_for_select(select_project_lead, select_user_from_document(item[:project_lead])) %></td>
           <td><%= select_tag "issues[#{item[:issue]}][custom][art_manager]", options_for_select(select_art_manager, select_user_from_document(item[:art_manager])) %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][parent_id]", parent_id %></td>
-          <td><%= date_field_tag "issues[#{item[:issue]}][due_date]", item[:dead_line] %></td>
-          <td><%= text_field_tag "issues[#{item[:issue]}][estimated_hours]", item[:time_cost_estimation] %></td>
+          <td><%= date_field_tag "issues[#{item[:issue]}][due_date]", item[:due_date] %></td>
+          <td><%= text_field_tag "issues[#{item[:issue]}][estimated_hours]", item[:estimated_hours] %></td>
           <td><%= select_tag "issues[#{item[:issue]}][custom][freelancer?]", options_for_select(['Да', 'Нет'], item[:freelance?]) %></td>
         </tr>
         <% parent_index -= 1 %>
