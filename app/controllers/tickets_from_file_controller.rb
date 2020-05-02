@@ -126,7 +126,9 @@ class TicketsFromFileController < ApplicationController
   def create_task
     @tasks = params[:issues]
     @project_id = params[:project].to_i
+    binding.pry
     @header = params[:header]
+    binding.pry
     user = params[:user].to_i
     issues_new = {}
     errors_validate = {}
