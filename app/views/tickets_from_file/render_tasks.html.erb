@@ -7,6 +7,7 @@
       <th><%= label_tag "Номер" %></th>
       <% @header.each do |item| %>
         <th><%= label_tag t item %></th>
+      <% binding.pry %>
       <%= hidden_field_tag "header[#{item}]", item %>
   <% end %>
     </tr>
