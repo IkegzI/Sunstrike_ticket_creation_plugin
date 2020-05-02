@@ -70,8 +70,12 @@ module TicketsFromFileHelper
       user_name = user_name.split(' ')
       # firstname: string, lastname: string
       binding.pry
-      val = User.where(firstname: user_name[1].downcase.capitalize, lastname: user_name[0].downcase.capitalize).first
-      val = User.where(firstname: user_name[0].downcase.capitalize, lastname: user_name[1].downcase.capitalize).first unless val.present?
+      unless user_name[0].to_i > 0
+        val = User.where(firstname: user_name[1].downcase.capitalize, lastname: user_name[0].downcase.capitalize).first
+        val = User.where(firstname: user_name[0].downcase.capitalize, lastname: user_name[1].downcase.capitalize).first unless val.present?
+      else
+        val = User.find(user_name[0].to_i)
+      end
       if val.present?
         val = val.id
       else
