@@ -15,7 +15,7 @@
 <h3>Настройка</h3>
 <div class="plitka">
   <h4>Поле: Project-lead</h4>
-  <div id="sunstrike_settnigs_select">
+  <div id="sunstrike_project_lead_id">
 
     <%= select_tag('settings[sunstrike_project_lead_id]',
                    options_for_select(select_custom_fields,
@@ -25,7 +25,7 @@
 <br>
 <div class="plitka">
   <h4>Поле: Арт-Менеджер</h4>
-  <div id="id_rol_on_selected_">
+  <div id="sunstrike_art_manager_id">
     <%= select_tag("settings[sunstrike_art_manager_id]",
                    options_for_select(select_role, Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i)) %>
   </div>
