@@ -1,9 +1,9 @@
 require 'iconv'
 class TicketsFromFileController < ApplicationController
-  
   include TicketsFromFileHelper
 
   @files = ''
+
   def upload
     @files
   end
@@ -70,7 +70,6 @@ class TicketsFromFileController < ApplicationController
     @header = []
     tasks = []
     razdelitel = ''
-    binding.pry
     @files = find_attachments.present? ? find_attachments : @files
     @files.each do |file|
       csv_file = File.readlines(file.diskfile)
@@ -126,7 +125,7 @@ class TicketsFromFileController < ApplicationController
 
   def create_task
     @tasks = params[:issues]
-    @project = params[:project].to_i
+    @project_id = params[:project].to_i
     @header = params[:header]
     user = params[:user].to_i
     issues_new = {}
@@ -142,7 +141,7 @@ class TicketsFromFileController < ApplicationController
           parent_id: @tasks[k][:parent_id],
           due_date: @tasks[k][:due_date],
           estimated_hours: @tasks[k][:estimated_hours],
-          project_id: @project,
+          project_id: @project_id,
           author: User.current
       )
       issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = @tasks[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
@@ -160,7 +159,6 @@ class TicketsFromFileController < ApplicationController
     end
     unless errors_validate.keys.present?
       issues_new.each_key { |key| issues_new[key].save }
-      binding.pry
       issues_new.each_key do |key|
         if issues_new[key].parent_id > 0
           issues_new[key].update(parent_id: issues_new[issues_new[key].parent_id.to_s].id)
@@ -170,24 +168,28 @@ class TicketsFromFileController < ApplicationController
       end
       redirect_to issues_path
     else
-      binding.pry
-
       # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
-      render action: 'render_tasks', :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
+     render action: 'render_tasks_with_errors', :flash => {:error => (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("/\r"))}
     end
+  end
 
-  binding.pry
+  def render_tasks
+    @tasks
+  end
 
+  def delete
+    a = RolesType.find_by(role_id: params[:id].to_i, type_roles_id: params[:type_id].to_i)
+    if a
+      a.destroy
+    end
+    redirect_to plugin_settings_path('Sunstrike_ticket_creation_plugin')
+  end
 
-
-end
-
-
-def render_tasks
-  @tasks
-end
-
+  def add
+    RolesType.create(role_id: params[:id].to_i, type_roles_id: params[:type_id].to_i)
+    redirect_to plugin_settings_path('Sunstrike_ticket_creation_plugin')
+  end
   
   
-  
+
 end

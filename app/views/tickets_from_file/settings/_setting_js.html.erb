@@ -1,0 +1,30 @@
+<script type="text/javascript">
+
+    $(document).ready(function () {
+            document.getElementById('project_lead_select_id').setAttribute(
+                'href', '/stc/1/add/' + document.getElementById('settings_sunstrike_selected_project_lead_id').value);
+
+            document.getElementById('art_manager_select_id').setAttribute(
+                'href', '/stc/2/add/' + document.getElementById('settings_sunstrike_selected_art_manager_id').value);
+
+            document.getElementById('project_lead_select_id').setAttribute('onchange', 'add_status("prl")');
+            document.getElementById('art_manager_select_id').setAttribute('onchange', 'add_status("am")');
+
+        }
+    );
+
+    function add_status(select_type) {
+        console.log('select_type');
+        if (select_type == 'prl') {
+            document.getElementById('project_lead_select_id').setAttribute(
+                'href', '/stc/1/add/' + document.getElementById('settings_sunstrike_selected_project_lead_id').value
+            );
+        }
+        if (select_type == 'am') {
+            document.getElementById('art_manager_select_id').setAttribute(
+                'href', '/stc/2/add/' + document.getElementById('settings_sunstrike_selected_art_manager_id').value
+            );
+        }
+    }
+
+</script>

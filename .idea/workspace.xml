@@ -30,18 +30,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../redmine_403/plugins/timeentry_easy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\ticket_creation" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app\views\tickets_from_file" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app\helpers" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\patches" />
       <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\ticket_creation" />
     </key>
   </component>
   <component name="RunManager" selected="Rails.Development: Sunstrike_ticket_creation_plugin">
@@ -152,6 +153,9 @@
       <workItem from="1587650874171" duration="4581000" />
       <workItem from="1587718564523" duration="6234000" />
       <workItem from="1587742512207" duration="7460000" />
+      <workItem from="1588069902047" duration="9207000" />
+      <workItem from="1588083145060" duration="792000" />
+      <workItem from="1588161705177" duration="72080000" />
     </task>
     <servers />
   </component>
@@ -176,18 +180,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1585798147505" />
-    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1587881672815">
+    <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1588398990760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587881672815" />
+    <state x="1220" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588398990760" />
     <state x="873" y="221" key="SettingsEditor" timestamp="1585798095089">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="873" y="221" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585798095089" />
-    <state x="1058" y="183" width="758" height="638" key="find.popup" timestamp="1587898024130">
+    <state x="1058" y="183" width="758" height="638" key="find.popup" timestamp="1588425092140">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="646" y="236" width="627" height="568" key="find.popup/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1587291902860" />
-    <state x="1058" y="183" width="758" height="638" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587898024130" />
+    <state x="1058" y="183" width="758" height="638" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588425092140" />
   </component>
 </project>

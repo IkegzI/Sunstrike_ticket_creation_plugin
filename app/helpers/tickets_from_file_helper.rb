@@ -51,6 +51,20 @@ module TicketsFromFileHelper
     val
   end
 
+  def select_tracer_from_document_on_id(tracker_id)
+    if tracker_id.present?
+      val = Tracker.find(tracker_id.to_i)
+      if val.present?
+        val = val.id
+      else
+        val = ''
+      end
+    else
+      val = ''
+    end
+    val
+  end
+
   def select_user_from_document(user_name)
     if user_name.present?
       user_name = user_name.split(' ')
@@ -103,9 +117,37 @@ module TicketsFromFileHelper
   end
 
   def select_custom_fields
-    IssueCustomField.all.map{|field| [field.name, field.id]}.insert(0, ['<--не выбрано-->', 'non'])
+    IssueCustomField.all.map { |field| [field.name, field.id] }.insert(0, ['<--не выбрано-->', 'non'])
   end
 
+  def select_role
+    Role.all.map { |item| [item.name, item.id] }
+  end
 
+  def select_roles_prl
+    begin
+      cf_roles = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i).roles
+      select_role - cf_roles.map { |item| [item.name, item.id] }
+    rescue
+      [['<--нет данных-->', 'non']]
+    end
+  end
+
+  def selected_prl
+    RolesType.where(type_roles_id: 1).map { |item| [item.role.name, item.role_id] }
+  end
+
+  def select_roles_am
+    begin
+      cf_roles = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i).roles
+      select_role - cf_roles.map { |item| [item.name, item.id] }
+    rescue
+      [['<--нет данных-->', 'non']]
+    end
+  end
+
+  def selected_am
+    RolesType.where(type_roles_id: 2).map { |item| [item.role.name, item.role_id] }
+  end
 
 end
