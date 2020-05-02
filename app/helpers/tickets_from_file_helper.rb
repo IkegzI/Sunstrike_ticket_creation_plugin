@@ -66,9 +66,10 @@ module TicketsFromFileHelper
   end
 
   def select_user_from_document(user_name)
-    if user_name.first.present? and user_name.last.present?
+    if user_name.present?
       user_name = user_name.split(' ')
       # firstname: string, lastname: string
+      binding.pry
       val = User.where(firstname: user_name[1].downcase.capitalize, lastname: user_name[0].downcase.capitalize).first
       val = User.where(firstname: user_name[0].downcase.capitalize, lastname: user_name[1].downcase.capitalize).first unless val.present?
       if val.present?
