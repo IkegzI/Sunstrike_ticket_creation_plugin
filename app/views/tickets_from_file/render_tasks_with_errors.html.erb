@@ -16,15 +16,14 @@
       <% @tasks.each_with_index do |item, index| %>
         <tr id="<%= item.first %>">
           <td><%= label_tag "#{index + 1}." %></td>
-
           <td><%= select_tag "issues[#{item.first}][tracker_id]", options_for_select(select_tracker, select_tracer_from_document_on_id(item.last[:tracker_id])) %></td>
           <td><%= text_field_tag "issues[#{item.first}][subject]", item.last[:subject] %></td>
           <td><%= text_field_tag "issues[#{item.first}][description]", item.last[:description] %></td>
           <td><%= select_tag "issues[#{item.first}][assigned_to_id]", options_for_select(select_users, select_user_from_document(item.last[:assigned_to_id])) %></td>
           <td><%= text_field_tag "issues[#{item.first}][custom][external_rate]", item.last[:external_rate] %></td>
           <td><%= text_field_tag "issues[#{item.first}][custom][fix_estimate]", item.last[:fix_estimate] %></td>
-          <td><%= select_tag "issues[#{item.first}][custom][project_lead]", options_for_select(select_project_lead, select_user_from_document(item.last[:project_lead])) %></td>
-          <td><%= select_tag "issues[#{item.first}][custom][art_manager]", options_for_select(select_art_manager, select_user_from_document(item.last[:art_manager])) %></td>
+          <td><%= select_tag "issues[#{item.first}][custom][project_lead]", options_for_select(select_roles_prl, select_user_from_document(item.last[:project_lead])) %></td>
+          <td><%= select_tag "issues[#{item.first}][custom][art_manager]", options_for_select(select_roles_am, select_user_from_document(item.last[:art_manager])) %></td>
           <td><%= text_field_tag "issues[#{item.first}][parent_id]", item.last[:parent_id] %></td>
           <td><%= date_field_tag "issues[#{item.first}][due_date]", item.last[:due_date] %></td>
           <td><%= text_field_tag "issues[#{item.first}][estimated_hours]", item.last[:estimated_hours] %></td>
