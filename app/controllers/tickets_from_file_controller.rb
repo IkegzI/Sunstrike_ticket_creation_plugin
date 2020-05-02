@@ -127,7 +127,11 @@ class TicketsFromFileController < ApplicationController
     @tasks = params[:issues]
     @project_id = params[:project].to_i
     binding.pry
-    @header = params[:header]
+    begin
+      @header = params[:header].key
+    rescue
+      @header = params[:header]
+    end
     binding.pry
     user = params[:user].to_i
     issues_new = {}
@@ -171,7 +175,7 @@ class TicketsFromFileController < ApplicationController
       redirect_to issues_path
     else
       # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
-     render action: 'render_tasks_with_errors', :flash => {:error => (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("/\r"))}
+      render action: 'render_tasks_with_errors', :flash => {:error => (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("/\r"))}
     end
   end
 
@@ -191,7 +195,6 @@ class TicketsFromFileController < ApplicationController
     RolesType.create(role_id: params[:id].to_i, type_roles_id: params[:type_id].to_i)
     redirect_to plugin_settings_path('Sunstrike_ticket_creation_plugin')
   end
-  
-  
+
 
 end
