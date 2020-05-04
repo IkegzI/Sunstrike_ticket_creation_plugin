@@ -196,12 +196,14 @@ class TicketsFromFileController < ApplicationController
     unless errors_validate.keys.present?
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
+        binding.pry
+
         if issues_new[key].parent_id > 0
           binding.pry
           issues_new[key].parent_id = issues_new[issues_new[key].parent_id.to_s].id
           issues_new[key].save
-        # else
-        #   issues_new[key].update(parent_id: nil)
+        else
+          issues_new[key].update(parent_id: nil)
         end
       end
       redirect_to issues_path
