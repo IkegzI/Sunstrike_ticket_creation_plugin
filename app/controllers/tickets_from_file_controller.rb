@@ -173,6 +173,7 @@ class TicketsFromFileController < ApplicationController
       redirect_to issues_path
     else
       # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
+      binding.pry
       render action: 'render_tasks_with_errors', :flash => {:error => (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("/\r"))}
     end
   end
