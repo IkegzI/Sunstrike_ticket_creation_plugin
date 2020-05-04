@@ -200,10 +200,11 @@ class TicketsFromFileController < ApplicationController
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
         if issues_new[key].parent_id.to_i > 0
-          issues_new[key].parent = issues_new[issues_new[key].parent_id.to_s]
+          parent_id_in_hash = issues_new[key].parent_id.to_s
+          issues_new[key].parent = issues_new[parent_id_in_hash]
           binding.pry
 
-          issues_new[issues_new[key].parent_id.to_s].children = issues_new[key]
+          issues_new[parent_id_in_hash].children = issues_new[key]
           binding.pry
         else
           issues_new[key].update(parent_id: nil)
