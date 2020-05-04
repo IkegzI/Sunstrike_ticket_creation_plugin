@@ -101,6 +101,9 @@ class TicketsFromFileController < ApplicationController
 
 
             if @header[i] == @header.last
+              binding.pry
+              task[:due_date] = Date.today if Date.parse(task[:due_date]) >= Date.today
+              task[:fix_estimate] = task[:fix_estimate].downcase.capitalize
               task[:freelance?] = task[:freelance?].downcase.capitalize
               task[:freelance?] = 'Нет' if task[:freelance?] != 'Да'
               break
