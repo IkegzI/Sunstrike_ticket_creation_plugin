@@ -30,8 +30,7 @@ module TicketsFromFileHelper
   end
 
   def select_tracker
-    binding.pry
-    Project.find(params[:project].to_i).trackers.map { |item| [item.name, item.id] }
+    Project.find(params[:project_id].to_i).trackers.map { |item| [item.name, item.id] }
   end
 
   def select_users
