@@ -184,15 +184,16 @@ class TicketsFromFileController < ApplicationController
       rescue
         puts 'Value is not correct!'
       end
-      binding.pry
-      issue.validate
-      if issue.errors
+
+      if issue.validate
         issues_new[k] = issue
       else
         errors_validate[k] = issue.errors
       end
 
     end
+    binding.pry
+
     unless errors_validate.keys.present?
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
