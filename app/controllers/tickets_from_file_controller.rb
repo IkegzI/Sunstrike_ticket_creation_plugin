@@ -192,12 +192,13 @@ class TicketsFromFileController < ApplicationController
       end
 
     end
-    binding.pry
 
     unless errors_validate.keys.present?
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
         if issues_new[key].parent_id > 0
+          binding.pry
+
           issues_new[key].update(parent_id: issues_new[issues_new[key].parent_id.to_s].id)
         else
           issues_new[key].update(parent_id: nil)
