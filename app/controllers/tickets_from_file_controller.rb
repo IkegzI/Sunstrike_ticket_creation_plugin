@@ -197,7 +197,7 @@ class TicketsFromFileController < ApplicationController
     unless errors_validate.keys.present?
       i = 0
       issue_root_id = 0
-      root_id_parent = 0
+      root_id_parent = nil
 
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
@@ -205,17 +205,19 @@ class TicketsFromFileController < ApplicationController
         if issues_new[key].parent_id.to_i > 0
           parent_id_in_hash = issues_new[key].parent_id.to_s
           id_issue = Issue.find(issues_new[parent_id_in_hash].id)
-          root_id_parent = id_issue.id if root_id_parent == 0
+          root_id_parent = id_issue.id if root_id_parent.nil?
           # "parent_issue_id"=>"82"
           # issue = Issue.find(issues_new[key].id)
           Issue.find(issues_new[key].id).parent_issue_id = root_id_parent
-          Issue.find(issues_new[key].id).update(parent_id: id_issue.id, lft: i, rgt: i + 1)
+          Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
+          Issue.find(issues_new[key].id).update(lft: i, rgt: i + 1)
           # issue.update(lft: i, rgt: i + 1)
+          binding.pry
           Issue.find(issues_new[key].id).reload
           i += 2
         else
           issues_new[key].update(parent_id: nil)
-          root_id_parent = 0
+          root_id_parent = nil
           i = 0
         end
       end
