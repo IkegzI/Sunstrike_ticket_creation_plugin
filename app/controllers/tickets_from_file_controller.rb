@@ -101,7 +101,6 @@ class TicketsFromFileController < ApplicationController
 
 
             if @header[i] == @header.last
-              binding.pry
               begin
                 task[:due_date] = Date.parse(task[:due_date]).to_s
               rescue
@@ -202,7 +201,7 @@ class TicketsFromFileController < ApplicationController
         if issues_new[key].parent_id.to_i > 0
           parent_id_in_hash = issues_new[key].parent_id.to_s
           binding.pry
-          issues_new[key].update(parent_issue_id: issues_new[parent_id_in_hash].id)
+          Issue.find(issues_new[key].id).update(parent_issue_id: Issue.find(issues_new[parent_id_in_hash].id))
         else
           issues_new[key].update(parent_id: nil)
         end
