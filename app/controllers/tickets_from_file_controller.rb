@@ -204,8 +204,8 @@ class TicketsFromFileController < ApplicationController
           binding.pry
           # "parent_issue_id"=>"82"
           issue = Issue.find(issues_new[key].id)
-          issue.parent_id = id_issue
-          issue.parent_issue_id = id_issue
+          issue.parent_id = id_issue.id
+          issue.parent_issue_id = id_issue.id
           issue.save!
           issue.reload
         else
