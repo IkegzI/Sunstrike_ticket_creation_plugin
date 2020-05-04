@@ -128,23 +128,34 @@ module TicketsFromFileHelper
     Role.all.map { |item| [item.name, item.id] }
   end
 
-  def select_roles_prl
+  def select_roles_prl(project = 0)
+    binding.pry
     begin
-      cf_roles = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i).roles
-      select_role - cf_roles.map { |item| [item.name, item.id] }
+      users_arr = []
+      cf_roles_ids = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id']).format_store[:user_role]
+      # roles_by_users = Project.find(id: project.to_i).users_by_role.map{|item| item}
+      roles_by_users = Project.find_by(identifier: 'local_task').users_by_role.map{|item| item}
+      cf_roles = roles_by_users.select{|role| cf_roles_ids.include?(role.first.id.to_s)}
+      cf_roles.map!{ |item| item.last.each{|user| users_arr << user} }
+      users_arr.map{ |item| [item.name, item.id] } << [['<--нет данных-->', 'non']]
     rescue
       [['<--нет данных-->', 'non']]
     end
   end
 
-  def selected_prl
-    RolesType.where(type_roles_id: 1).map { |item| [item.role.name, item.role_id] }
+  def selected_role_prl_user
+    binding.pry
+    select_roles_prl.each do |role|
+      
+    end
   end
 
   def select_roles_am
+    binding.pry
+
     begin
       cf_roles = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i).roles
-      select_role - cf_roles.map { |item| [item.name, item.id] }
+      cf_roles.map { |item| [item.name, item.id] } << [['<--нет данных-->', 'non']]
     rescue
       [['<--нет данных-->', 'non']]
     end
