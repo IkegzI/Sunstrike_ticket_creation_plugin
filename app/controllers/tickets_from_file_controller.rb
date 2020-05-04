@@ -201,7 +201,7 @@ class TicketsFromFileController < ApplicationController
       issues_new.each_key do |key|
         if issues_new[key].parent_id.to_i > 0
           binding.pry
-          issues_new[key].update(parent: issues_new[issues_new[key].parent_id.to_s].id)
+          issues_new[key].parent = issues_new[issues_new[key].parent_id.to_s]
           binding.pry
         else
           issues_new[key].update(parent_id: nil)
