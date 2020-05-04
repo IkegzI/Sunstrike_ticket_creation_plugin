@@ -193,8 +193,7 @@ class TicketsFromFileController < ApplicationController
       redirect_to issues_path
     else
       # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
-      @errors_str = (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("<br \\>"))
-      flash[:error] = (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("<br>"))
+      flash[:error] = (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('<br>') }.join("<br>"))
       # flash[:error] = errors_validate.keys.map { |k| errors_validate[k].full_messages.join('') }
       render action: 'render_tasks_with_errors'
     end
@@ -217,5 +216,8 @@ class TicketsFromFileController < ApplicationController
     redirect_to plugin_settings_path('Sunstrike_ticket_creation_plugin')
   end
 
+  def freelance_val
+    CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i)
+  end
 
 end
