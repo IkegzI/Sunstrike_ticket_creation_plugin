@@ -194,26 +194,30 @@ class TicketsFromFileController < ApplicationController
       end
 
     end
-    i = 0
     unless errors_validate.keys.present?
+      i = 0
+      issue_root_id = 0
+      root_id_parent = 0
+
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
+
         if issues_new[key].parent_id.to_i > 0
           parent_id_in_hash = issues_new[key].parent_id.to_s
           id_issue = Issue.find(issues_new[parent_id_in_hash].id)
+          root_id_parent = id_issue.id if root_id_parent == 0
           # "parent_issue_id"=>"82"
           issue = Issue.find(issues_new[key].id)
+          issue.parent_issue_id = root_id_parent
           issue.parent_id = id_issue.id
-          issue.parent_issue_id = id_issue.id
-          # lft: 2, rgt: 3
           issue.save!
           issue.update(lft: i, rgt: i + 1)
           issue.reload
-          binding.pry
-
           i += 2
         else
           issues_new[key].update(parent_id: nil)
+          root_id_parent = 0
+          i = 0
         end
       end
       redirect_to issues_path
