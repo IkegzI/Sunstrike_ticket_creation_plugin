@@ -128,11 +128,11 @@ module TicketsFromFileHelper
     Role.all.map { |item| [item.name, item.id] }
   end
 
-  def select_roles_prl(project = 0)
+  def select_roles_prl
     begin
       users_arr = []
       cf_roles_ids = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id']).format_store[:user_role]
-      roles_by_users = Project.find(params[:project_id].to_i).users_by_role.map{|item| item}
+      roles_by_users = Project.find((params[:project_id] || params[:project]).to_i).users_by_role.map{|item| item}
       cf_roles = roles_by_users.select{|role| cf_roles_ids.include?(role.first.id.to_s)}
       cf_roles.map!{ |item| item.last.each{|user| users_arr << user} }
       users_arr.map{ |item| [item.name, item.id] }.insert(0, ['<--нет данных-->', 'non'])
@@ -151,7 +151,7 @@ module TicketsFromFileHelper
      begin
         users_arr = []
         cf_roles_ids = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id']).format_store[:user_role]
-        roles_by_users = Project.find(params[:project_id].to_i).users_by_role.map{|item| item}
+        roles_by_users = Project.find((params[:project_id] || params[:project]).to_i).users_by_role.map{|item| item}
         cf_roles = roles_by_users.select{|role| cf_roles_ids.include?(role.first.id.to_s)}
         cf_roles.map!{ |item| item.last.each{|user| users_arr << user} }
         users_arr.map{ |item| [item.name, item.id] }.insert(0, ['<--нет данных-->', 'non'])
