@@ -203,8 +203,7 @@ class TicketsFromFileController < ApplicationController
           id_issue = Issue.find(issues_new[parent_id_in_hash].id)
           binding.pry
           # "parent_issue_id"=>"82"
-                    issues_new[key].update(parent_id: nil)
-          Issue.find(issues_new[key].id).update(parent_issue_id: id_issue)
+          (Issue.find(issues_new[key].id).update(parent_issue_id: id_issue, parent_id: id_issue)).reload
         else
           issues_new[key].update(parent_id: nil)
         end
