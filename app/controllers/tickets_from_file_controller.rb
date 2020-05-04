@@ -180,8 +180,9 @@ class TicketsFromFileController < ApplicationController
       rescue
         puts 'Value is not correct!'
       end
-
-      if issue.validate
+      binding.pry
+      issue.validate
+      if issue.errors
         issues_new[k] = issue
       else
         errors_validate[k] = issue.errors
