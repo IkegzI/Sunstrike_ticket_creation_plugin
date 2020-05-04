@@ -9,6 +9,7 @@ Redmine::Plugin.register :Sunstrike_ticket_creation_plugin do
   ON_OFF_CONST = [['Включен', 0], ['Выключен', 1]]
   YES_NO_CONST = [['Да', 0], ['Нет', 1]]
   NO_YES_CONST = [['Да', 1], ['Нет', 0]]
+  YES_NO_STR_CONST = ['Да', 'Нет']
 
 
   settings default: {}, partial: 'tickets_from_file/settings/control'
