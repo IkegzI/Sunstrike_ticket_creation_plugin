@@ -22,7 +22,7 @@
           <td><%= text_field_tag "issues[#{item[:issue]}][description]", item[:description] %></td>
           <td><%= select_tag "issues[#{item[:issue]}][assigned_to_id]", options_for_select(select_users, select_user_from_document(item[:assigned_to_id])) %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][custom][external_rate]", item[:external_rate] %></td>
-          <td><%= text_field_tag "issues[#{item[:issue]}][custom][fix_estimate]", options_for_select(NO_YES_CONST, item[:fix_estimate]) %></td>
+          <td><%= select_tag "issues[#{item[:issue]}][custom][fix_estimate]", options_for_select(NO_YES_CONST, item[:fix_estimate]) %></td>
           <td><%= select_tag "issues[#{item[:issue]}][custom][project_lead]", options_for_select(select_roles_prl, select_user_from_document(item[:project_lead])) %></td>
           <td><%= select_tag "issues[#{item[:issue]}][custom][art_manager]", options_for_select(select_roles_am, select_user_from_document(item[:art_manager])) %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][parent_id]", parent_id %></td>
