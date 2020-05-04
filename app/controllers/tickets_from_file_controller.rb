@@ -148,6 +148,7 @@ class TicketsFromFileController < ApplicationController
           project_id: @project_id,
           author: User.current
       )
+      binding.pry
       issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = @tasks[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
       issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'].to_i }.first.value = @tasks[k][:custom][:art_manager] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_art_manager_id'] != 'non'
       issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i }.first.value = @tasks[k][:custom][:freelancer?] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'] != 'non'
