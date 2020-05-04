@@ -133,7 +133,7 @@ module TicketsFromFileHelper
     begin
       users_arr = []
       cf_roles_ids = CustomField.find(Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id']).format_store[:user_role]
-      roles_by_users = Project.find(id: params[:project_id].to_i).users_by_role.map{|item| item}
+      roles_by_users = Project.find(params[:project_id].to_i).users_by_role.map{|item| item}
       cf_roles = roles_by_users.select{|role| cf_roles_ids.include?(role.first.id.to_s)}
       cf_roles.map!{ |item| item.last.each{|user| users_arr << user} }
       users_arr.map{ |item| [item.name, item.id] } << [['<--нет данных-->', 'non']]
