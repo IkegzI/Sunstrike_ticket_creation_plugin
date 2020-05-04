@@ -30,6 +30,7 @@ module TicketsFromFileHelper
   end
 
   def select_tracker
+    binding.pry
     Tracker.all.map { |item| [item.name, item.id] }
   end
 

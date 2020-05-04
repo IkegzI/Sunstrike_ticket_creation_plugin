@@ -148,7 +148,6 @@ class TicketsFromFileController < ApplicationController
           project_id: @project_id,
           author: User.current
       )
-      binding.pry
       begin
       issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = @tasks[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
       rescue
@@ -197,7 +196,6 @@ class TicketsFromFileController < ApplicationController
       @errors_str = (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("<br \\>"))
       flash[:error] = (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('') }.join("<br>"))
       # flash[:error] = errors_validate.keys.map { |k| errors_validate[k].full_messages.join('') }
-      binding.pry
       render action: 'render_tasks_with_errors'
     end
   end
