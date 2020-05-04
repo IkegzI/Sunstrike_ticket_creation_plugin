@@ -5,7 +5,6 @@
     <%= form_tag tickets_from_file_create_task_path do %>
   <tr>
       <th><%= label_tag "Номер" %></th>
-    <% binding.pry %>
 
     <% @header.each do |item| %>
         <th><%= label_tag t item %></th>
@@ -24,7 +23,6 @@
           <td><%= select_tag "issues[#{item[:issue]}][assigned_to_id]", options_for_select(select_users, select_user_from_document(item[:assigned_to_id])) %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][custom][external_rate]", item[:external_rate] %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][custom][fix_estimate]", item[:fix_estimate] %></td>
-          binding.pry
           <td><%= select_tag "issues[#{item[:issue]}][custom][project_lead]", options_for_select(select_roles_prl, select_user_from_document(item[:project_lead])) %></td>
           <td><%= select_tag "issues[#{item[:issue]}][custom][art_manager]", options_for_select(select_roles_am, select_user_from_document(item[:art_manager])) %></td>
           <td><%= text_field_tag "issues[#{item[:issue]}][parent_id]", parent_id %></td>
