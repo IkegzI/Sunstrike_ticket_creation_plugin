@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1bf9bfa-c1cb-4f2a-8738-4436a68e56ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tickets_from_file_controller.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,7 +42,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588601002985</updated>
       <workItem from="1588601004262" duration="1946000" />
-      <workItem from="1588604801542" duration="7749000" />
+      <workItem from="1588604801542" duration="8400000" />
     </task>
     <servers />
   </component>

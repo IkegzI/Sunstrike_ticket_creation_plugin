@@ -194,7 +194,7 @@ class TicketsFromFileController < ApplicationController
       end
 
     end
-
+    i = 0
     unless errors_validate.keys.present?
       issues_new.each_key { |key| issues_new[key].save }
       issues_new.each_key do |key|
@@ -206,8 +206,12 @@ class TicketsFromFileController < ApplicationController
           issue = Issue.find(issues_new[key].id)
           issue.parent_id = id_issue.id
           issue.parent_issue_id = id_issue.id
+          # lft: 2, rgt: 3
+          issue.lft = i
+          issue.rgt = i + 1
           issue.save!
           issue.reload
+          i += 2
         else
           issues_new[key].update(parent_id: nil)
         end
