@@ -156,8 +156,11 @@ class TicketsFromFileController < ApplicationController
           author: User.current
       )
       begin
-        @tasks[k][:custom][:project_lead] = '' if @tasks[k][:custom][:project_lead] == 'non'
-        issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = @tasks[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
+        if @tasks[k][:custom][:project_lead] == 'non'
+          @tasks[k][:custom][:project_lead] = ''
+        else
+          issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'].to_i }.first.value = @tasks[k][:custom][:project_lead] if Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_project_lead_id'] != 'non'
+        end
       rescue
         @tasks[k][:custom][:project_lead] = '' if @tasks[k][:custom][:project_lead] == 'non'
         puts 'Project-lead is not find!'
