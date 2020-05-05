@@ -106,9 +106,16 @@ class TicketsFromFileController < ApplicationController
               rescue
                 puts "Date is not correct"
               end
+              hash_select_str = {'Да' => 1, 'Нет' => 0}
+              
               task[:fix_estimate] = task[:fix_estimate].downcase.capitalize
+              task[:fix_estimate] = 'Да' if task[:fix_estimate] != 'Нет'
+              task[:fix_estimate] = hash_select_str[task[:fix_estimate]]
+
               task[:freelance?] = task[:freelance?].downcase.capitalize
               task[:freelance?] = 'Нет' if task[:freelance?] != 'Да'
+              task[:freelance?] = hash_select_str[task[:freelance?]]
+
               task[:project_lead] = user_id_find(task[:project_lead])
               task[:art_manager] = user_id_find(task[:art_manager])
               task[:tracker_id] = user_id_find(task[:tracker_id])
