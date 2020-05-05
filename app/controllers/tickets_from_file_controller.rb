@@ -210,7 +210,7 @@ class TicketsFromFileController < ApplicationController
           # issue = Issue.find(issues_new[key].id)
           Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
           # Issue.find(issues_new[key].id).parent_issue_id = id_issue.id
-          Issue.find(issues_new[key].id).parent_issue_id = id_issue.id
+          Issue.find(issues_new[key].id).parent_issue_id = parent_id_in_hash.id
           Issue.find(issues_new[key].id).update(lft: i, rgt: i+1)
           i += 2
           # Issue.find(issues_new[key].id).reload
