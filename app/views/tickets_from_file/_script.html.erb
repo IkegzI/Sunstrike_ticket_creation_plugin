@@ -13,9 +13,13 @@
     function pager(page) {
         var fields = $('tr[page="' + page + '"]');
         var fields_visible = $('tr[data-visible="true"]');
-       var button_click = document.getElementById('active_page').getAttribute('for');
-       console.log(button_click, document.getElementById('active_page'));
-        $('label[for="' + Namber.parseInt(button_click) + '"]')[0].removeAttribute('id');
+       var button_click = document.getElementById('active_page').getAttribute('page');
+         $('label[page="' + Namber.parseInt(button_click) + '"]')[0].removeAttribute('id');
+
+
+
+       // console.log(button_click, document.getElementById('active_page'));
+       //  $('label[page="' + Namber.parseInt(button_click) + '"]')[0].removeAttribute('id');
         for (var i = 0; i < fields_visible.length; i++) {
             fields_visible[i].style.display = 'none';
             fields_visible[i].setAttribute('data-visible', 'false');
