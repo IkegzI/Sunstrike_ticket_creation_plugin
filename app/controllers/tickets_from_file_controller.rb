@@ -107,7 +107,7 @@ class TicketsFromFileController < ApplicationController
                 puts "Date is not correct"
               end
               hash_select_str = {'Да' => 1, 'Нет' => 0}
-              
+
               task[:fix_estimate] = task[:fix_estimate].downcase.capitalize
               task[:fix_estimate] = 'Да' if task[:fix_estimate] != 'Нет'
               task[:fix_estimate] = hash_select_str[task[:fix_estimate]]
