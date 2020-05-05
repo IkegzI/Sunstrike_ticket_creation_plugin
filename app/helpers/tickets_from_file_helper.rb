@@ -179,5 +179,3 @@ module TicketsFromFileHelper
   end
 
 end
-
-end
