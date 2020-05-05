@@ -226,10 +226,8 @@ class TicketsFromFileController < ApplicationController
           i = 0
         end
       end
-      flash[:error] = []
-      flash[:notice] = 'Задачи успешно созданы!'
-
-      redirect_to issues_path
+      flash[:error] = {}
+      redirect_to issues_path, :notice => 'Задачи успешно созданы!'
     else
       # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }
       flash[:error] = (errors_validate.keys.map { |k| ["Задача #{k}. ", errors_validate[k].full_messages].join('<br>') }.join("<br>"))
