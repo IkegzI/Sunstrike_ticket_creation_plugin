@@ -42,7 +42,7 @@
   <% if (@tasks.size / 10).to_i > 0 %>
     <div>
       <h4 id="pager_head">Страницы: </h4>
-      <% (@tasks.size / 10).to_i.times do |page| %>
+      <% 0.upto((@tasks.size / 10).to_i) do |page| %>
         <%= label_tag "#{page + 1}", "#{page + 1}", onClick: "pager(#{page + 1});", class: 'paginate_custom' %>
       <% end %>
     </div>
