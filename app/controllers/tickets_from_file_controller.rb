@@ -211,10 +211,7 @@ class TicketsFromFileController < ApplicationController
           Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
           # Issue.find(issues_new[key].id).parent_issue_id = id_issue.id
           Issue.find(issues_new[key].id).parent_issue_id = id_issue.id
-          # Issue.find(issues_new[key].id).parent_issue_id = root_id_parent
-          # Issue.find(issues_new[key].id).update(lft: i, rgt: i+1)
-          Issue.find(issues_new[key].id).update(lft: i+1, rgt: i+2)
-          binding.pry
+          Issue.find(issues_new[key].id).update(lft: i, rgt: i+1)
 
           # Issue.find(issues_new[key].id).reload
         else
