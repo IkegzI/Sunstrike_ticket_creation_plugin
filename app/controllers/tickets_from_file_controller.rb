@@ -210,10 +210,12 @@ class TicketsFromFileController < ApplicationController
           # issue = Issue.find(issues_new[key].id)
           # Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
           # Issue.find(issues_new[key].id).parent_issue_id = id_issue.id
+                    Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
           Issue.find(issues_new[key].id).parent_issue_id = root_id_parent
-          Issue.find(issues_new[key].id).update(lft: i, rgt: i+1)
+          Issue.find(issues_new[key].id).update(lft: i, rgt: i+1, parent_id: id_issue.id)
           i += 2
-          Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
+
+          # Issue.find(issues_new[key].id).update(parent_id: id_issue.id)
           # Issue.find(issues_new[key].id).reload
         else
           issues_new[key].update(parent_id: nil)
