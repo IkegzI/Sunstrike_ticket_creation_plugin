@@ -6,7 +6,7 @@
             fields[i].setAttribute('data-visible', 'true');
             fields[i].setAttribute('id', 'active_page');
         }
-            $('label[for="1"]').setAttribute('id', 'active_page')
+            $('label[for="1"]')[0].setAttribute('id', 'active_page')
     }
     );
 
@@ -23,7 +23,7 @@
         for (var i = 0; i < fields.length; i++) {
             fields[i].style.display = '';
             fields[i].setAttribute('data-visible', 'true');
-            $('label[for="'+ page +'"]').setAttribute('id', 'active_page');
+            $('label[for="'+ page +'"]')[0].setAttribute('id', 'active_page');
         }
     }
 </script>
