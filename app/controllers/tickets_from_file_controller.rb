@@ -109,6 +109,8 @@ class TicketsFromFileController < ApplicationController
               task[:fix_estimate] = task[:fix_estimate].downcase.capitalize
               task[:freelance?] = task[:freelance?].downcase.capitalize
               task[:freelance?] = 'Нет' if task[:freelance?] != 'Да'
+              task[:project_lead] = user_id_find(task[:project_lead])
+              task[:art_manager] = user_id_find(task[:art_manager])
               break
             end
             i += 1
@@ -118,6 +120,10 @@ class TicketsFromFileController < ApplicationController
             if task[:dead_line].split('.').size > 1
               task[:dead_line] = task[:dead_line].split('.').reverse.join('-')
             end
+          end
+
+          if task[:project_lead].present?
+            binding.pry
           end
 
           tasks << task if task.present?
