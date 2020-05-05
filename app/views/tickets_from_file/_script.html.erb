@@ -15,10 +15,11 @@
         var fields_visible = $('tr[data-visible="true"]');
        var button_click = document.getElementById('active_page').getAttribute('page');
          $('label[page="' + Number.parseInt(button_click) + '"]')[0].removeAttribute('id');
+        document.getElementById('active_page').removeAttribute('id');
 
 
 
-       // console.log(button_click, document.getElementById('active_page'));
+       console.log(button_click, document.getElementById('active_page'), $('label[page="' + Number.parseInt(button_click) + '"]')[0]);
        //  $('label[page="' + Namber.parseInt(button_click) + '"]')[0].removeAttribute('id');
         for (var i = 0; i < fields_visible.length; i++) {
             fields_visible[i].style.display = 'none';
