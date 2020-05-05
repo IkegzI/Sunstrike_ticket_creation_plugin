@@ -17,14 +17,14 @@
       <% @tasks.each_with_index do |item, index| %>
         <tr id="<%= index + 1 %>" page="<%= (index / 10).to_i + 1 %>" style="display:none;">
             <td><%= label_tag "#{index + 1}." %></td>
-            <td><%= select_tag "issues[#{item[:issue]}][tracker_id]", options_for_select(select_tracker, select_tracer_from_document(item[:tracker_id])) %></td>
+            <td><%= select_tag "issues[#{item[:issue]}][tracker_id]", options_for_select(select_tracker, item[:tracker_id]) %></td>
             <td><%= text_field_tag "issues[#{item[:issue]}][subject]", item[:subject] %></td>
             <td><%= text_field_tag "issues[#{item[:issue]}][description]", item[:description] %></td>
-            <td><%= select_tag "issues[#{item[:issue]}][assigned_to_id]", options_for_select(select_users, select_user_from_document(item[:assigned_to_id])) %></td>
+            <td><%= select_tag "issues[#{item[:issue]}][assigned_to_id]", options_for_select(select_users, item[:assigned_to_id]) %></td>
             <td><%= text_field_tag "issues[#{item[:issue]}][custom][external_rate]", item[:external_rate] %></td>
             <td><%= select_tag "issues[#{item[:issue]}][custom][fix_estimate]", options_for_select(YES_NO_STR_CONST, item[:fix_estimate]) %></td>
-            <td><%= select_tag "issues[#{item[:issue]}][custom][project_lead]", options_for_select(select_roles_prl, select_user_from_document(item[:project_lead])) %></td>
-            <td><%= select_tag "issues[#{item[:issue]}][custom][art_manager]", options_for_select(select_roles_am, select_user_from_document(item[:art_manager])) %></td>
+            <td><%= select_tag "issues[#{item[:issue]}][custom][project_lead]", options_for_select(select_roles_prl, item[:project_lead]) %></td>
+            <td><%= select_tag "issues[#{item[:issue]}][custom][art_manager]", options_for_select(select_roles_am, item[:art_manager]) %></td>
             <td><%= text_field_tag "issues[#{item[:issue]}][parent_id]", parent_id %></td>
             <td><%= date_field_tag "issues[#{item[:issue]}][due_date]", item[:due_date] %></td>
             <td><%= text_field_tag "issues[#{item[:issue]}][estimated_hours]", item[:estimated_hours] %></td>

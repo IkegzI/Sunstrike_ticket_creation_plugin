@@ -111,6 +111,8 @@ class TicketsFromFileController < ApplicationController
               task[:freelance?] = 'Нет' if task[:freelance?] != 'Да'
               task[:project_lead] = user_id_find(task[:project_lead])
               task[:art_manager] = user_id_find(task[:art_manager])
+              task[:tracker_id] = user_id_find(task[:tracker_id])
+              task[:assigned_to_id] = user_id_find(task[:assigned_to_id])
               break
             end
             i += 1
