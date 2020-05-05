@@ -25,7 +25,7 @@
           <td><%= text_field_tag "issues[#{item.first}][custom][external_rate]", item.last[:custom][:external_rate] %></td>
           <td><%= select_tag "issues[#{item.first}][custom][fix_estimate]", options_for_select(YES_NO_STR_CONST, item.last[:custom][:fix_estimate] ) %></td>
           <td><%= select_tag "issues[#{item.first}][custom][project_lead]", options_for_select(select_roles_prl, item.last[:custom][:project_lead]) %></td>
-          <td><%= select_tag "issues[#{item.first}][custom][art_manager]", options_for_select(select_roles_am, sitem.last[:custom][:art_manager]) %></td>
+          <td><%= select_tag "issues[#{item.first}][custom][art_manager]", options_for_select(select_roles_am, item.last[:custom][:art_manager]) %></td>
           <td><%= text_field_tag "issues[#{item.first}][parent_id]", item.last[:parent_id] %></td>
           <td><%= date_field_tag "issues[#{item.first}][due_date]", item.last[:due_date] %></td>
           <td><%= text_field_tag "issues[#{item.first}][estimated_hours]", item.last[:estimated_hours] %></td>
