@@ -123,16 +123,10 @@ class TicketsFromFileController < ApplicationController
               task[:dead_line] = task[:dead_line].split('.').reverse.join('-')
             end
           end
-
-          if task[:project_lead].present?
-            binding.pry
-          end
-
           tasks << task if task.present?
         end
       end
     end
-    binding.pry
     @project_id = params[:project_id].to_i
     # @tasks = tasks
     @tasks = tasks
