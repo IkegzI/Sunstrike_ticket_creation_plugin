@@ -226,6 +226,8 @@ class TicketsFromFileController < ApplicationController
           i = 0
         end
       end
+      flash[:error] = []
+      flash[:notice] = 'Задачи успешно созданы!'
 
       redirect_to issues_path
     else
