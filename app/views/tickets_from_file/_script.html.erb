@@ -13,12 +13,11 @@
     function pager(page) {
         var fields = $('tr[page="' + page + '"]');
         var fields_visible = $('tr[data-visible="true"]');
-
-        document.getElementById('active_page').removeAttribute('id');
+       var button_click = document.getElementById('active_page').getAttribute('for');
+        $('label[for="' + button_click + '"]')[0].removeAttribute('id');
         for (var i = 0; i < fields_visible.length; i++) {
             fields_visible[i].style.display = 'none';
             fields_visible[i].setAttribute('data-visible', 'false');
-
         }
         for (var i = 0; i < fields.length; i++) {
             fields[i].style.display = '';
