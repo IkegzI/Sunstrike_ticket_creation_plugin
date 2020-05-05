@@ -124,7 +124,9 @@ class TicketsFromFileController < ApplicationController
         end
       end
     end
-    @project_id = Project.find(params[:project_id].to_i).id
+    binding.pry
+    @project_id = params[:project_id].to_i
+    # @tasks = tasks
     @tasks = tasks
     render action: 'render_tasks'
   end
@@ -215,6 +217,7 @@ class TicketsFromFileController < ApplicationController
           i = 0
         end
       end
+
       redirect_to issues_path
     else
       # redirect_to tickets_from_file_upload_errors_path, :flash => { :error => (errors_validate.keys.map{|k| ["Задача #{k}. ", errors_validate[k].full_messages].join('')}.join("/\r")) }

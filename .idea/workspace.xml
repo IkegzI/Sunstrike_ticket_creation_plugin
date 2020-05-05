@@ -9,6 +9,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="ERB File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -19,7 +26,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/tickets_from_file" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app\views\tickets_from_file" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\lib\ticket_creation\hooks" />
+      <recent name="C:\ruby\redmine_346\plugins\Sunstrike_ticket_creation_plugin\app\views\tickets_from_file" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -53,9 +69,9 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="647" y="236" width="627" height="568" key="find.popup" timestamp="1588658657754">
+    <state x="647" y="236" width="627" height="568" key="find.popup" timestamp="1588666122271">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="647" y="236" width="627" height="568" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588658657754" />
+    <state x="647" y="236" width="627" height="568" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588666122271" />
   </component>
 </project>

@@ -1,4 +1,6 @@
 <%= render partial: 'tickets_from_file/style' %>
+<%= render partial: 'tickets_from_file/script' %>
+
 <div class="wrapper">
 
   <table>
@@ -14,7 +16,7 @@
       <% parent_index = 0 %>
       <% parent_id = 0 %>
       <% @tasks.each_with_index do |item, index| %>
-        <tr id="<%= item.first %>">
+        <tr id="<%= item.first %>" page="<%= (index / 10).to_i + 1 %>" style="display:none;">
           <td><%= label_tag "#{index + 1}." %></td>
           <td><%= select_tag "issues[#{item.first}][tracker_id]", options_for_select(select_tracker, select_tracer_from_document_on_id(item.last[:tracker_id])) %></td>
           <td><%= text_field_tag "issues[#{item.first}][subject]", item.last[:subject] %></td>
@@ -37,4 +39,10 @@
     <% end %>
 
   </table>
+  <div>
+    <h4 id="pager_head">Страницы: </h4>
+  <% (@tasks.size / 10).to_i.times do |page| %>
+    <%= label_tag "#{page + 1}","#{page + 1}", onClick: "pager(#{page+1});", class: 'paginate_custom' %>
+  <% end %>
+  </div>
 </div>
