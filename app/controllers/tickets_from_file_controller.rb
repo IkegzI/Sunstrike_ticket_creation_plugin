@@ -183,13 +183,12 @@ class TicketsFromFileController < ApplicationController
         puts 'Art-manager is not find!'
       end
       begin
-        binding.pry
-        issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i }.first.value = @tasks[k][:custom][:freelancer?]
+        issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_freelance_id'].to_i }.first.value = @tasks[k][:custom][:freelancer?].to_i
       rescue
         puts 'Value is not correct!'
       end
       begin
-        issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'].to_i }.first.value = @tasks[k][:custom][:fix_estimate]
+        issue.custom_field_values.select { |cf| cf.custom_field_id == Setting.plugin_Sunstrike_ticket_creation_plugin['sunstrike_fix_estimate_id'].to_i }.first.value = @tasks[k][:custom][:fix_estimate].to_i
       rescue
         puts 'Value is not correct!'
       end

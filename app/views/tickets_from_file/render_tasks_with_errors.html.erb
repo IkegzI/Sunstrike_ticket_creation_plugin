@@ -5,13 +5,13 @@
 
   <table>
     <%= form_tag tickets_from_file_create_task_path do %>
-  <tr>
-      <th><%= label_tag "Номер" %></th>
-      <% @header.each do |item| %>
-        <th><%= label_tag t item %></th>
-      <%= hidden_field_tag "header[#{item}]", item %>
-  <% end %>
-    </tr>
+      <tr>
+        <th><%= label_tag "Номер" %></th>
+        <% @header.each do |item| %>
+          <th><%= label_tag t item %></th>
+          <%= hidden_field_tag "header[#{item}]", item %>
+        <% end %>
+      </tr>
       <body>
       <% parent_index = 0 %>
       <% parent_id = 0 %>
@@ -23,7 +23,7 @@
           <td><%= text_field_tag "issues[#{item.first}][description]", item.last[:description] %></td>
           <td><%= select_tag "issues[#{item.first}][assigned_to_id]", options_for_select(select_users, item.last[:assigned_to_id]) %></td>
           <td><%= text_field_tag "issues[#{item.first}][custom][external_rate]", item.last[:custom][:external_rate] %></td>
-          <td><%= select_tag "issues[#{item.first}][custom][fix_estimate]", options_for_select(NO_YES_CONST, item.last[:custom][:fix_estimate] ) %></td>
+          <td><%= select_tag "issues[#{item.first}][custom][fix_estimate]", options_for_select(NO_YES_CONST, item.last[:custom][:fix_estimate]) %></td>
           <td><%= select_tag "issues[#{item.first}][custom][project_lead]", options_for_select(select_roles_prl, item.last[:custom][:project_lead]) %></td>
           <td><%= select_tag "issues[#{item.first}][custom][art_manager]", options_for_select(select_roles_am, item.last[:custom][:art_manager]) %></td>
           <td><%= text_field_tag "issues[#{item.first}][parent_id]", item.last[:parent_id] %></td>
@@ -39,10 +39,13 @@
     <% end %>
 
   </table>
-  <div>
-    <h4 id="pager_head">Страницы: </h4>
-  <% (@tasks.size / 10).to_i.times do |page| %>
-    <%= label_tag "#{page + 1}","#{page + 1}", onClick: "pager(#{page+1});", class: 'paginate_custom' %>
+  <% if (@tasks.size / 10).to_i > 0 %>
+    <div>
+      <h4 id="pager_head">Страницы: </h4>
+      <% (@tasks.size / 10).to_i.times do |page| %>
+        <%= label_tag "#{page + 1}", "#{page + 1}", onClick: "pager(#{page + 1});", class: 'paginate_custom' %>
+      <% end %>
+    </div>
   <% end %>
-  </div>
+
 </div>
