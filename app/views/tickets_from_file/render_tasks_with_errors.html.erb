@@ -21,7 +21,7 @@
           <td><%= select_tag "issues[#{item.first}][tracker_id]", options_for_select(select_tracker, item.last[:tracker_id]) %></td>
           <td><%= text_field_tag "issues[#{item.first}][subject]", item.last[:subject] %></td>
           <td><%= text_field_tag "issues[#{item.first}][description]", item.last[:description] %></td>
-          <td><%= select_tag "issues[#{item.first}][assigned_to_id]", options_for_select(select_users, sitem.last[:assigned_to_id]) %></td>
+          <td><%= select_tag "issues[#{item.first}][assigned_to_id]", options_for_select(select_users, item.last[:assigned_to_id]) %></td>
           <td><%= text_field_tag "issues[#{item.first}][custom][external_rate]", item.last[:custom][:external_rate] %></td>
           <td><%= select_tag "issues[#{item.first}][custom][fix_estimate]", options_for_select(YES_NO_STR_CONST, item.last[:custom][:fix_estimate] ) %></td>
           <td><%= select_tag "issues[#{item.first}][custom][project_lead]", options_for_select(select_roles_prl, item.last[:custom][:project_lead]) %></td>
