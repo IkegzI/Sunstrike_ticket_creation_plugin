@@ -13,7 +13,7 @@
     function pager(page) {
         var fields = $('tr[page="' + page + '"]');
         var fields_visible = $('tr[data-visible="true"]');
-        $('label[id="active_page"]').removeAttribute('id');
+        $('label[id="active_page"]')[0].removeAttribute('id');
         for (var i = 0; i < fields_visible.length; i++) {
             fields_visible[i].style.display = 'none';
             fields_visible[i].setAttribute('data-visible', 'false');
