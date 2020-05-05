@@ -1,0 +1,20 @@
+<script type="text/javascript">
+    <%# if params[:project_id].present? and request.url.split('/').last == 'issues'%>
+    <% if @project.present? and request.url.split('/').last == 'issues'%>
+    $(document).ready(function () {
+
+        if (document.getElementById('link_creation_task_from_file') == null) {
+
+                var element_parent = document.querySelector('#content .contextual');
+                var href_upload = document.createElement('a');
+                href_upload.setAttribute('id', 'link_creation_task_from_file');
+                href_upload.setAttribute('class', 'icon icon-add new-issue');
+                href_upload.setAttribute('href', '/tickets_from_file/upload?utf8=✓&project_id=<%= params[:project_id] %>');
+                href_upload.innerText = 'Создать задачи из файла';
+                element_parent.appendChild(href_upload);
+            }
+        }
+    );
+    <% end %>
+
+</script>

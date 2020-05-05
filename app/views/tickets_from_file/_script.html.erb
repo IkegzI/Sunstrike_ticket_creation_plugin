@@ -1,0 +1,23 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        var fields = $('tr[page="1"]');
+        for (var i = 0; i < fields.length; i++) {
+            fields[i].style.display = '';
+            fields[i].setAttribute('data-visible', 'true');
+        }
+    }
+    );
+
+    function pager(page) {
+        var fields = $('tr[page="' + page + '"]');
+        var fields_visible = $('tr[data-visible="true"]');
+        for (var i = 0; i < fields_visible.length; i++) {
+            fields_visible[i].style.display = 'none';
+            fields_visible[i].setAttribute('data-visible', 'false');
+        }
+        for (var i = 0; i < fields.length; i++) {
+            fields[i].style.display = '';
+            fields[i].setAttribute('data-visible', 'true');
+        }
+    }
+</script>
