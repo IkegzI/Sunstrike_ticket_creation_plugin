@@ -64,7 +64,7 @@ module TicketsFromFileHelper
   end
 
   def select_users
-    Member.where(project_id: Project.find_by(identifier: '154u').id).map { |item| ["#{item.firstname} #{item.lastname}", item.id] } << ["", "non"]
+    Member.where(project_id: Project.find_by(identifier: '154u').id).map { |item| ["#{item.lastname} #{item.firstname}", item.id] } << ["", "non"]
   end
 
   def select_project
