@@ -25,8 +25,9 @@
     <option name="autoscrollToSource" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/tickets_from_file" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../redmine_403" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -49,6 +50,11 @@
       <updated>1588601002985</updated>
       <workItem from="1588601004262" duration="1946000" />
       <workItem from="1588604801542" duration="12736000" />
+      <workItem from="1588749836484" duration="597000" />
+      <workItem from="1588854942582" duration="1179000" />
+      <workItem from="1589295468768" duration="598000" />
+      <workItem from="1589371848995" duration="1203000" />
+      <workItem from="1589462723976" duration="1261000" />
     </task>
     <servers />
   </component>
@@ -69,9 +75,13 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="647" y="236" width="627" height="568" key="find.popup" timestamp="1588688744954">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589378323103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="647" y="236" width="627" height="568" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588688744954" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1360.305.1360.728@0.0.1920.1040" timestamp="1589378323103" />
+    <state x="647" y="236" width="627" height="568" key="find.popup" timestamp="1588693989200">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="647" y="236" width="627" height="568" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588693989200" />
   </component>
 </project>

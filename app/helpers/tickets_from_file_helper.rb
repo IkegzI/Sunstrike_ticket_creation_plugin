@@ -33,9 +33,7 @@ module TicketsFromFileHelper
     Project.find((params[:project_id] || params[:project]).to_i).trackers.map { |item| [item.name, item.id] }
   end
 
-  def select_users
-    User.all.map { |item| ["#{item.firstname} #{item.lastname}", item.id] } << ["", "non"]
-  end
+
 
   def select_tracer_from_document(tracker_name)
     if tracker_name.present?
@@ -65,27 +63,9 @@ module TicketsFromFileHelper
     val
   end
 
-  # def select_user_from_document(user_name)
-  #   #   if user_name.present?
-  #   #     user_name = user_name.split(' ')
-  #   #     # firstname: string, lastname: string
-  #   #     unless user_name[0].to_i > 0
-  #   #       val = User.where(firstname: user_name[1].downcase.capitalize, lastname: user_name[0].downcase.capitalize).first
-  #   #       val = User.where(firstname: user_name[0].downcase.capitalize, lastname: user_name[1].downcase.capitalize).first unless val.present?
-  #   #     else
-  #   #       val = User.find(user_name[0].to_i)
-  #   #     end
-  #   #     if val.present?
-  #   #       val = val.id
-  #   #     else
-  #   #       val = ''
-  #   #     end
-  #   #   else
-  #   #     val = ''
-  #   #   end
-  #   #   val
-  #   # end
-
+  def select_users
+    Member.where(project_id: Project.find_by(identifier: '154u').id).map { |item| ["#{item.firstname} #{item.lastname}", item.id] } << ["", "non"]
+  end
 
   def select_project
     Project.where(status: 1).map { |item| [item.name, item.id] }
