@@ -5,6 +5,7 @@ class TicketsFromFileController < ApplicationController
   @files = ''
 
   def upload
+    binding.pry
     @files
   end
 
